@@ -31,7 +31,7 @@ Here is me playing through the second level without skipping any cutscenes:
 {%
   include embed/video.html
   src='/media/21st_gamejam/dino_lvl2.mp4'
-  types='ogg|mov'
+  types='mp4'
   title='This is what a full level looks like, including our opening and closing scenes'
   autoplay=false
   loop=false
@@ -48,7 +48,7 @@ For some more exciting gameplay: level four
 {%
   include embed/video.html
   src='/media/21st_gamejam/dino_lvl4.mp4'
-  types='ogg|mov'
+  types='mp4'
   title='Me attempting a more challenging level, you can hear the fail sounds due to me missing the timing 😅'
   autoplay=false
   loop=false
