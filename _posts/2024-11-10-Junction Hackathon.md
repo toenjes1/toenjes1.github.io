@@ -6,13 +6,13 @@ tags: [fullstack, js, react, vite, py, contest, hackathon]
 toc: false
 comments: false
 image:
-    path: assets/img/junction.jpg
+    path: /media/junction/junction.jpg
     alt: cheaky group photo
 ---
 
 The Junction hackathon calls itself "one of the largest hackathons in Europe". Some friends and I decided to find out what it's all about. A hackathon is much like a [GameJam](/posts/18th-HPI-GameJam) in that it requires designing and building software quickly, the difference being that it's typically productive software and not a video game being built. 
 
-![Desktop View](/assets/img/helsinki.jpg){: .w-50 .left}
+![Desktop View](/media/junction/helsinki.jpg){: .w-50 .left}
 
 We thus flew to Helsinki, where Junction takes place every year. This year, Junction had booked an event space in the _Kaapelitehdas_, an old cable factory turned cultural centre right by the harbour.
 
@@ -24,7 +24,7 @@ For this challenge, teams had to create software that takes the floor plans of a
 
 So we developed **monoplan**. Our software consists of three main steps. The user interacts with our web app. First, the user can upload any number of floor plans for all the storeys of the building and input the storey height. Without even the press of a button, the walls of the building are intelligently detected within the floor plans and displayed on it. In the second step, the user has the option to readjust walls, delete them or add in more. Or the user moves right along to step three: the building is now rendered in 3D right inside your browser and the user may place any number of included KONE 3D lift assets anywhere within the model. And just like that, in only a few minutes any user can intuitively visualise planned lift shafts.
 
-![Desktop View](/assets/img/junction_hall.jpg){: .w-50 .right}
+![Desktop View](/media/junction/junction_hall.jpg){: .w-50 .right}
 
 As for our tech stack, the frontend is written entirely in React, with the 3D model being rendered by Three.JS. The whole page runs on Vite and connects to a Flask server where our smart detection system is running in Python. All code can be found on our [GitHub](https://github.com/DanielC04/Junction2024).
 
