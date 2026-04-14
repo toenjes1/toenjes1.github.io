@@ -9,7 +9,7 @@ image:
     alt: The setup of our watering mechanism prototype
 ---
 
-Inspired by the soldering and microcontroller programming in a university lecture (that I talk more about [here](./2024-07-10-Building%20Interactive%20Systems.md)), a friend and I decided to whip up the _absolute classic_ in his dorm room: an automatic watering mechanism. His bonsai did also look like he needed it.
+Inspired by the soldering and microcontroller programming in a university lecture (that I talk more about [here](/posts/Building-Interactive-Systems)), a friend and I decided to whip up the _absolute classic_ in his dorm room: an automatic watering mechanism. His bonsai did also look like he needed it.
 
 We came up with the simple mechanism seen above: a moisture sensor in the soil of the plant hooked up to an Arduino, which in turn drives an electric pump. Our idea was simple in that whenever the soil's moisture fell below a threshold, one "watering" worth of water should be pumped from a reservoir into the soil.
 
