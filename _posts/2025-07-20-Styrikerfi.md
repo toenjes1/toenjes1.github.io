@@ -222,5 +222,3 @@ This has been my favourite project of mine since. That is why it's pinned at the
 You can find all of our code on [GitLab](https://gitlab.com/opendumbphone/s45). The source is open, as it should be. And, hey, if you're excited about hacking old phones, get yourself a Siemens S45 and keep building on our code. 
 
 Actually, at the next iteration of operating systems 2, extension projects on top of our base will be suggested to the students. Building an emulator or a file system. Additionally, we are scheduled to present the reverse engineering side of things at [Hacken & Schnacken Vol. 11](https://platypwnies.de/events/hacken-und-schnacken/), a hack & tell event by our student cybersecurity club.
-
-I love low-level coding, man. It can be difficult, but, damn, I like it.
