@@ -37,9 +37,9 @@ We knew that the Siemens S45 is susceptible to some injection during bootstrappi
 We found a 10-year-old software project ["FREIA"](https://github.com/siemens-mobile-dev/freia) that utilises this to arbitrarily overwrite the phone's flash memory, including ROM, and even a corresponding GUI application called [V_Klay](https://github.com/siemens-mobile-dev/v-klay). Thank you, @siemens-mobile-dev. In this way it could, for instance, start executing custom instructions and thus a custom OS. 
 It is for this reason that we chose this specific model in the first place since we knew that we could feasibly get the phone to execute _something_ made by us. 
 
-### Confidential SIEMENS documents
+### SIEMENS documentation
 What we did not know, however, were the instructions supported by the CPU or any other functionalities of it, the memory layout and how to address it, or anything about any of the devices on the board.
-Luckily, the same niche crowd of Eastern European Siemens enjoyers responsible for the two projects mentioned above had also leaked two noteworthy internal Siemens documents. 
+Luckily, the same niche crowd of Eastern European Siemens enjoyers responsible for the two projects mentioned above had also shared two noteworthy Siemens documents. 
 It was there that we could start our investigation. 
 
 Within the little documentation we did find some architectural diagrams granting us first insights. I would show them to you, but I suppose distribution of copyrighted material is illegal...
@@ -68,7 +68,6 @@ We wrote a simple CLI program to interact with the phone's serial interface, mos
 
 However, early on we encountered troubles regarding the baud rate of the interface. Eventually, we managed to align it and reliably receive data from the phone.
 
-![Desktop View](/media/styrikerfi/watchdog.png){: width="972" height="589" .w-50 .right}
 Once this hurdle was cleared, a bigger obstacle dawned. The watchdogs on the CPU. A watchdog is a hardware system meant to protect the system in case of critical faults. If the watch dog times out without receiving a signal ("being tickled"), it shuts down the CPU. The documentation we had did warn us of such a watchdog. It also specified an instruction to deactivate it... it did not work. Or did it? It turns out, there is more than one watchdog.
 
 Naturally, you would expect that a functional bootloader such as FREIA somehow executes something which keeps the watchdog from turning off the CPU. So we dug through FREIA's code to find a configuration of CPU timer 3. This timer was set up to count down three seconds. Its interrupt routine included toggling the bit `P4.1` and resetting the timer. Very curious... Presumably, toggling `P4.1` is tickling the dog. Let's copy that timer configuration into our code and start sending bytes on the serial port to see how long it lasts. Result: three seconds. The CPU shuts off after three seconds. 
