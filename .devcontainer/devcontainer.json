@@ -1,7 +1,9 @@
 {
   "name": "Jekyll",
   "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
-  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  // The upstream image ships /usr/local/bundle owned by root, so `bundle install` (run by the image's
+  // own postCreateCommand as `vscode`) fails with Bundler::PermissionError unless we take ownership first.
+  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && sudo chown -R vscode:vscode /usr/local/bundle",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
