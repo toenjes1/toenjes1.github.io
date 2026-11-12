@@ -1,0 +1,40 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* dark-mode site title/subtitle colours */
+:root[data-bs-theme='dark'] {
+  --site-title-color: rgb(175 176 177);
+  --site-subtitle-color: #a9a9a9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    --site-title-color: rgb(175 176 177);
+    --site-subtitle-color: #a9a9a9;
+  }
+}
+
+/* hide right panel lists, post license line, related posts and share row */
+/* !important needed: some of these carry Bootstrap utility classes like .d-flex, which use !important */
+#panel-wrapper .access,
+.license-wrapper,
+#related-posts,
+.share-wrapper {
+  display: none !important;
+}
+
+.site-subtitle {
+  font-style: normal;
+}
